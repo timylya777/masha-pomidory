@@ -3,8 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>МАША • ПОМИДОРЫ • ларёк на 1 этаже</title>
-<meta name="description" content="Маша продаёт помидоры прямо в колледже. По 30₽ за штуку. ТЭС-11 approved. Кидать в историка — на свой риск.">
+<title>ТЭС-11 • ЛОР-ХАБ — помидоры, изюмный картель и Маша Т1000</title>
+<meta name="description" content="Лор чата ТЭС-11: ларек Маши с помидорами, изюмный картель, барашка за автомат, доска розыска. Магазин внутри.">
+<meta property="og:title" content="ТЭС-11 • ЛОР-ХАБ 🍅">
+<meta property="og:description" content="Помидоры, изюмный картель, Маша Т1000. Магазин внутри — по 30₽.">
+<meta property="og:image" content="img/rozysk-v2.jpg">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 :root{
@@ -38,7 +41,7 @@ nav{position:sticky;top:0;z-index:20;backdrop-filter:blur(16px);background:rgba(
 .nav-links{margin-left:auto;display:flex;gap:8px;align-items:center;flex:none}
 .nav-links a{color:var(--txt);text-decoration:none;font-size:13px;padding:8px 12px;border-radius:100px;border:1px solid var(--line);background:rgba(255,255,255,.04);white-space:nowrap}
 .cart-btn{cursor:pointer;border:1px solid var(--line);background:#fff;color:#111;font-weight:800;border-radius:100px;padding:9px 14px;font-size:14px;white-space:nowrap;-webkit-tap-highlight-color:transparent}
-@media(max-width:600px){
+@media(max-width:760px){
   .nav-links a{display:none}
   .brand b{font-size:12.5px}
   .brand span{font-size:10.5px}
@@ -92,6 +95,16 @@ section{padding:36px 0}
 h2{font-size:clamp(28px,5vw,46px);letter-spacing:-.03em;line-height:1;margin-bottom:8px}
 .kicker{color:var(--tom);font-weight:800;letter-spacing:.18em;font-size:12px;margin-bottom:10px}
 .lead{color:var(--mut);margin-bottom:18px;line-height:1.6}
+/* TIMELINE */
+.tl{position:relative;display:grid;gap:12px;margin-top:6px}
+.tl::before{content:"";position:absolute;left:11px;top:8px;bottom:8px;width:2px;background:linear-gradient(180deg,#ff3b30,#ff9f0a,#7dff6a);opacity:.5;border-radius:2px}
+.tl-item{position:relative;margin-left:34px;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:14px 16px}
+.tl-item::before{content:"";position:absolute;left:-29px;top:18px;width:12px;height:12px;border-radius:50%;background:#ff9f0a;box-shadow:0 0 0 4px #ff9f0a22}
+.tl-date{display:inline-block;font-size:11px;font-weight:800;letter-spacing:.1em;color:#111;background:var(--yellow);border-radius:100px;padding:4px 10px;margin-bottom:8px}
+.tl-item h3{font-size:17px;margin-bottom:6px}
+.tl-item p{color:var(--mut);font-size:14px;line-height:1.6}
+.tl-item p b{color:var(--txt)}
+.tl-item q{display:block;color:var(--txt);font-size:14px;line-height:1.6;border-left:3px solid var(--tom);padding-left:10px;margin-top:8px;quotes:"«" "»"}
 /* CATALOG */
 .grid{display:grid;gap:12px}
 @media(min-width:720px){.grid{grid-template-columns:1fr 1fr}}
@@ -111,7 +124,7 @@ h2{font-size:clamp(28px,5vw,46px);letter-spacing:-.03em;line-height:1;margin-bot
 .add:hover{background:var(--yellow)}
 /* CHAT */
 .chat{background:#0f0a0a;border:1px solid var(--line);border-radius:26px;padding:18px;display:grid;gap:10px}
-.msg{max-width:88%;padding:11px 14px;border-radius:16px;font-size:14px;line-height:1.5;border:1px solid var(--line)}
+.msg{max-width:88%;padding:11px 14px;border-radius:16px;font-size:14px;line-height:1.5;border:1px solid var(--line);overflow-wrap:anywhere}
 .msg small{display:block;opacity:.6;font-size:11px;margin-bottom:4px;font-weight:700;letter-spacing:.04em}
 .m-left{background:rgba(255,255,255,.06);border-bottom-left-radius:6px;justify-self:start}
 .m-right{background:linear-gradient(135deg,#ff3b30,#c81e1e);border:0;justify-self:end;border-bottom-right-radius:6px}
@@ -126,6 +139,12 @@ h2{font-size:clamp(28px,5vw,46px);letter-spacing:-.03em;line-height:1;margin-bot
 .vs div{border-radius:18px;padding:18px;border:1px solid var(--line)}
 .vs .us{background:linear-gradient(135deg,#ff3b3022,#ff9f0a22)}
 .vs .them{background:rgba(255,255,255,.04);opacity:.85}
+/* BRIBE TABLE */
+.bribe{width:100%;border-collapse:separate;border-spacing:0;margin-top:14px;font-size:14px;overflow:hidden;border:1px solid var(--line);border-radius:18px}
+.bribe th,.bribe td{text-align:left;padding:12px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+.bribe tr:last-child th,.bribe tr:last-child td{border-bottom:0}
+.bribe th{background:rgba(255,59,48,.12);font-size:12px;letter-spacing:.08em}
+.bribe td:first-child{font-size:22px;text-align:center;width:52px}
 /* REVIEWS */
 .rev{display:grid;gap:10px}
 @media(min-width:760px){.rev{grid-template-columns:1fr 1fr}}
@@ -164,6 +183,12 @@ footer{padding:30px 0 60px;color:var(--mut);font-size:13px;text-align:center}
 .poster img{width:100%;height:auto;display:block;border-radius:14px;border:1px solid var(--line)}
 .poster figcaption{color:var(--mut);font-size:13px;line-height:1.6;padding:10px 4px 2px}
 .poster figcaption b{color:var(--yellow)}
+.gallery{display:grid;gap:12px;margin-top:14px}
+@media(min-width:760px){.gallery{grid-template-columns:1fr 1fr}}
+.shot{border:1px solid var(--line);border-radius:22px;overflow:hidden;background:var(--card)}
+.shot .art{font-size:64px;text-align:center;padding:26px 12px 8px;filter:drop-shadow(0 12px 24px #ff3b3055)}
+.shot figcaption{padding:12px 16px 16px;font-size:13.5px;line-height:1.6;color:var(--mut)}
+.shot figcaption b{color:var(--txt);display:block;font-size:15px;margin-bottom:4px}
 .reveal{opacity:0;transform:translateY(18px);transition:.6s}
 .reveal.on{opacity:1;transform:none}
 #boom{position:fixed;inset:0;pointer-events:none;z-index:99;font-size:28px}
@@ -174,30 +199,32 @@ footer{padding:30px 0 60px;color:var(--mut);font-size:13px;text-align:center}
 
 <nav><div class="wrap nav-in">
   <div class="logo">🍅</div>
-  <div class="brand"><b>МАША • ПОМИДОРЫ</b><span>ларёк на 1 этаже • ТЭС-11</span></div>
+  <div class="brand"><b>ТЭС-11 • ЛОР-ХАБ</b><span>помидоры • изюмный картель • Т1000</span></div>
   <div class="nav-links">
-    <a href="#catalog">Каталог</a>
-    <a href="#enemies">🍇 Враги</a>
+    <a href="#lore">Хроника</a>
+    <a href="#heroes">Герои</a>
+    <a href="#rozysk">Розыск</a>
+    <a href="#catalog">Магазин</a>
     <button class="cart-btn" onclick="toggleCart()">Корзина<i id="count">0</i></button>
   </div>
 </div></nav>
 
-<div class="marquee"><div>🍅 СВЕЖИЕ ПОМИДОРЫ ПО 30₽ ПРЯМО В КОЛЛЕДЖЕ • ВОЙНА С ИЗЮМНЫМ КАРТЕЛЕМ • КИДАТЬ В ИСТОРИКА — НА СВОЙ РИСК • КАЗАЧКА НА БАРАШКЕ ДОСТАВИТ • ГРУШИ НЕ ЗАБУДЬ •&nbsp;🍅 СВЕЖИЕ ПОМИДОРЫ ПО 30₽ ПРЯМО В КОЛЛЕДЖЕ • ВОЙНА С ИЗЮМНЫМ КАРТЕЛЕМ • КИДАТЬ В ИСТОРИКА — НА СВОЙ РИСК • КАЗАЧКА НА БАРАШКЕ ДОСТАВИТ • ГРУШИ НЕ ЗАБУДЬ •&nbsp;</div></div>
+<div class="marquee"><div>🍅 СВЕЖИЕ ПОМИДОРЫ ПО 30₽ ПРЯМО В КОЛЛЕДЖЕ • ВОЙНА С ИЗЮМНЫМ КАРТЕЛЕМ • МАША Т1000 НЕ ЛОМАЕТСЯ • БАРАШКА ЗА АВТОМАТ НЕ ПРИНИМАЕТСЯ • КАЗАЧИЙ ГЛАЗ ВИДИТ ВСЁ • ГРУШИ НЕ ЗАБУДЬ •&nbsp;🍅 СВЕЖИЕ ПОМИДОРЫ ПО 30₽ ПРЯМО В КОЛЛЕДЖЕ • ВОЙНА С ИЗЮМНЫМ КАРТЕЛЕМ • МАША Т1000 НЕ ЛОМАЕТСЯ • БАРАШКА ЗА АВТОМАТ НЕ ПРИНИМАЕТСЯ • КАЗАЧИЙ ГЛАЗ ВИДИТ ВСЁ • ГРУШИ НЕ ЗАБУДЬ •&nbsp;</div></div>
 
 <div class="wrap">
 <header class="hero">
   <div>
-    <span class="badge"><span class="pulse"></span><span id="open">ЛАРЁК ОТКРЫТ • 1 ЭТАЖ • ИЗ КОРОБОК</span></span>
-    <h1>МАША<br><span class="stroke">ПРОДАЁТ</span><br><span class="tom">ПОМИДОРЫ 🍅</span></h1>
-    <p class="sub">Легенда ТЭС-11: помидоры есть, но <b>«ем их через силу»</b>. Поэтому берёшь пару коробок, приходишь в колледж и на первом этаже делаешь ларёк. <b>По 20–30₽ за штуку — прямо между парами.</b> В плюс выходишь, одногруппники не голодают, историк — в безопасности (почти).</p>
+    <span class="badge"><span class="pulse"></span><span id="open">ЛЕТПИСЬ ЖИВА • ЗАПИСАНО ИЗ ЧАТА</span></span>
+    <h1>ТЭС-11<br><span class="stroke">ЛОР-ХАБ</span><br><span class="tom">ПОМИДОРЫ 🍅</span></h1>
+    <p class="sub">Всё, чем жил чат группы в сентябре: <b>ларёк Маши</b> на 1 этаже, <b>изюмный картель</b> с крышей у историка, <b>Маша Т1000</b>, барашка за автомат и святая троица — помидоры, груши, виноград. Магазин — внутри, это лишь одна из глав.</p>
     <div class="cta-row">
-      <a class="btn btn-red" href="#catalog">🍅 Взять помидоры</a>
-      <a class="btn btn-ghost" href="#chat">📜 Лор из чата ТЭС-11</a>
+      <a class="btn btn-red" href="#lore">📜 Читать хронику</a>
+      <a class="btn btn-ghost" href="#catalog">🍅 Сразу в магазин</a>
     </div>
     <div class="stats">
-      <div class="stat"><b>30 ₽/шт</b><span>поштучно в колледже, без маркетплейсов</span></div>
-      <div class="stat"><b>100%</b><span>вероятность «просру всё в первый день» — цитата основателя</span></div>
-      <div class="stat"><b>1 этаж</b><span>ларек из коробок, доставка до парты</span></div>
+      <div class="stat"><b>~10k</b><span>сообщений чата легло в основу лора</span></div>
+      <div class="stat"><b>30 ₽/шт</b><span>помидоры поштучно, 1 этаж, большая перемена</span></div>
+      <div class="stat"><b>5 🍅</b><span>награда за каждого разыскиваемого</span></div>
     </div>
   </div>
   <div class="tom-stage">
@@ -211,57 +238,60 @@ footer{padding:30px 0 60px;color:var(--mut);font-size:13px;text-align:center}
   </div>
 </header>
 
-<section id="catalog">
-  <div class="kicker">КАТАЛОГ • СОБРАНО ИЗ КОРОБОК</div>
-  <h2>Что продаётся</h2>
-  <p class="lead">Цены — из бизнес-плана Timylya777. Промокод <b style="color:#ffd60a">КАЗАЧКА</b> — скидка 15%. Промокод <b style="color:#ffd60a">ИСТОРИК</b> — ничего не даст, но историк поставит 5.</p>
-  <div class="grid" id="grid"></div>
+<section id="lore">
+  <div class="kicker">ХРОНИКА • СЕНТЯБРЬ, КАК БЫЛО</div>
+  <h2>Летопись чата</h2>
+  <p class="lead">Ничего не выдумано — только реальные события. Даты настоящие.</p>
+  <div class="tl">
+    <div class="tl-item reveal"><span class="tl-date">06.09 • ТЕРМИНАТОР</span><h3>🤖 Маша Т1000: швабра, пылесос и отдельная история</h3><p>Вечером чат выясняет, почему Маша подписана как «пылесос». Оказывается — там <b>даже не пылесос, а швабра</b>. Про пылесос — отдельная история, которую так и не рассказали.</p><q>хуя ты как терминатор оказывается, т1000</q></div>
+    <div class="tl-item reveal"><span class="tl-date">09.09 • САЙД-КВЕСТ</span><h3>🧊 Холодильник в общагу</h3><p>Ларёк ещё не открыт, а логистика уже страдает: <b>холодильник нужно донести</b> до общаги. Вакансия висит до сих пор — см. «Вакансии ларька» внизу.</p></div>
+    <div class="tl-item reveal"><span class="tl-date">11.09 • ВЗЯТКА ВЕКА</span><h3>🐎 Барашка историку за автомат</h3><p>Маша предлагает гениальную схему: <b>принести историку барашка — и получить автомат</b>. Чат вердиктует: барашка спиздят, а отрабатывать заставят вместе с бараном. Казачий глаз, впрочем, видит всё.</p><q>а если я барашка историку принесу, то он мне сразу автомат поставит?</q></div>
+    <div class="tl-item reveal"><span class="tl-date">13.09 • СВЯТАЯ ТРОИЦА</span><h3>🍅🍐🍇 Помидоры, груши и виноград</h3><p>Маша декларирует ассортимент: <b>«у меня только помидоры, груши и виноград»</b>. Груши — завтра, виноград — где-то, помидоры — точно. Так родилось меню ларька.</p></div>
+    <div class="tl-item reveal"><span class="tl-date">15.09 УТРО • КАРТЕЛЬ</span><h3>🍇 «У изюмчика спроси»</h3><p>Задолго до ларька в чате всплывает серый кардинал: все запретные данные — через <b>Изюмчика</b>. А у Маши висит долг: «я тебе еще за изюм не сделала». Картель помнит всё.</p></div>
+    <div class="tl-item reveal"><span class="tl-date">15.09 ВЕЧЕР • СТАРТАП</span><h3>📦 Ларек на 1 этаже</h3><p>Маша ест помидоры через силу и готова просрать всё в первый день — идеальный основатель. Timylya777 пишет бизнес-план: <b>пару коробок, первый этаж, 20–30₽ за штуку</b>. Маша отвечает «делаю». Скептик интересуется размером помидоров. Так начинаются легенды.</p></div>
+    <div class="tl-item reveal"><span class="tl-date">15.09 НОЧЬ • ТАРО</span><h3>🔮 На картах написано «успех»</h3><p>На стартап раскладывают карты: <b>там написано успех</b>. Луивитон — для своих, успех — для своих. Миллиардер в перспективе не спорит.</p><q>На картах разложил и там было написано успех</q></div>
+  </div>
 </section>
 
-<section id="chat">
-  <div class="kicker">ДОКУМЕНТАЛЬНЫЙ ЛОР • 15.09 • ЧАТ «ТЭС-11 СТУДЕНТЫ»</div>
-  <h2>Как всё началось</h2>
-  <p class="lead">Ничего не выдумано. Реальные цитаты, реальный стартап.</p>
-  <div class="chat reveal">
-    <div class="msg m-left"><small>koilsx • 20:13</small>Так у нее помидоры есть, она не голодающая</div>
-    <div class="msg m-right"><small>номном (Маша) • 20:13</small>я помидоры не оч люблю<br>я их ем через силу</div>
-    <div class="msg m-left"><small>Ms.Sirnik • 20:13</small>Нам раздавать должна. Зажралась</div>
-    <div class="msg m-right"><small>номном (Маша) • 20:13</small>с вероятность 100 процентов, что я просру все в первый день</div>
-    <div class="msg m-green"><small>Timylya777 • стартапер • 20:14</small>Так смотри, берёшь помидоры, пару коробок, приходишь в колледж и на первом этаже из коробок делаешь ларёк, и продаёшь типо там 20-30р за штуку, и так в плюс выходишь</div>
-    <div class="msg m-right"><small>номном (Маша) • 20:14</small>делаю</div>
-    <div class="msg m-left"><small>koilsx • 20:14</small>Их будут брать чисто чтоб в преподов кидать?</div>
-    <div class="msg m-right"><small>номном (Маша) • 20:14</small>в историка</div>
-    <div class="msg m-left"><small>Ms.Sirnik • 20:15</small>Это типо покупаем акции ларька</div>
-    <div class="msg m-left"><small>Ms.Sirnik • 20:15</small>Изюм конкурировать будет. Давно на рынке, а тут мы только выходим</div>
-    <div class="msg m-green"><small>Timylya777 • 20:16</small>Так контрольный пакет акций изюма у историка, его просто голосами за единую Россию покупаешь и всё</div>
-    <div class="msg m-left"><small>MadG33k • 20:23</small>Чё-то дорого. Эт какого размера помидоры</div>
-    <div class="msg m-green"><small>Timylya777 • 20:24</small>Так ну это же поштучно и прямо в колледже. И ваще ты не великий стартапер вайбкодер и миллиардер (в перспективе), так что не спорь мне тут</div>
-  </div>
-
-  <div class="vs">
-    <div class="us"><b>🍅 Ларёк Маши</b><br><small>• свежак с дома<br>• 30₽ между парами<br>• казачка на барашке — без пробок<br>• акции ларька для своих<br>• новоселье в пятницу — дегустация</small></div>
-    <div class="them"><b>🍇 Изюмный картель (враги)</b><br><small>• давно на рынке, а мы только выходим<br>• контрольный пакет — у историка<br>• выкупается голосами<br>• в стену кидать бесполезно — не лопается</small></div>
+<section id="heroes">
+  <div class="kicker">ГЕРОИ • ГРУППА 406</div>
+  <h2>Действующие лица</h2>
+  <p class="lead">Ники изменены там, где просили. Суть — нет.</p>
+  <div class="grid">
+    <div class="card reveal on"><div class="em">🍅🐎</div><span class="tag hot">ОСНОВАТЕЛЬ</span><h3>Маша</h3><p>Казачка. Продаёт помидоры, которые ест через силу. Должница картеля, владелица барашки, обладатель казачьего глаза. Просрёт всё в первый день с вероятностью 100% — и всё равно делает.</p></div>
+    <div class="card reveal on"><div class="em">🤖</div><span class="tag meme">МОДЕЛЬ Т1000</span><h3>Маша Т1000</h3><p>Не ломается, не ржавеет. Подписана как пылесос, на деле — швабра. Про пылесос — отдельная история. Жидкий металл, коробки, 1 этаж.</p></div>
+    <div class="card reveal on"><div class="em">🚀</div><span class="tag">СТАРТАПЕР</span><h3>Timylya777</h3><p>Великий стартапер, вайбкодер и миллиардер (в перспективе). Автор бизнес-плана ларька и этого сайта. С ним не спорят.</p></div>
+    <div class="card reveal on"><div class="em">💚</div><h3>Отдел заботы</h3><p>«Пропитание голодающим». Держит связь с Изюмчиком, раскладывает таро на успех, контролирует качество винограда. Без неё ларёк — просто коробки.</p></div>
+    <div class="card reveal on"><div class="em">🍐</div><h3>Логистика</h3><p>«Груши мои не забудь завтра». Не любит сладкое — естественный союзник помидорной армии. Кисло-сладкий фронт держится на ней.</p></div>
+    <div class="card reveal on"><div class="em">🎓🍇</div><span class="tag hot">КРЫША</span><h3>Историк</h3><p>Держит контрольный пакет акций изюма. Берёт голосами, барашками не берёт (барашку спиздит). Кидаться в него — только купленным у нас. Почти шутка.</p></div>
   </div>
 </section>
 
 <section id="enemies">
   <div class="kicker">⚔️ ВОЙНА ЛАРЬКОВ • ПОМИДОРЫ VS ИЗЮМ</div>
-  <h2>Противники с изюмом</h2>
+  <h2>Изюмный картель</h2>
   <p class="lead">Картель засветился в чате ещё утром 15.09 — задолго до ларька. Разбираем пофамильно, цитаты прилагаются.</p>
   <div class="grid">
-    <div class="card reveal on"><div class="em">🍇🕶️</div><span class="tag hot">ГЛАВАРЬ</span><h3>Изюмчик</h3><p>Серый кардинал. «У изюмчика спроси» — Ms.Sirnik, 09:42. Все запретные данные из архива Лёхи — через него. Держит общажный рынок сухофруктов.</p><div class="price"><b>угроза: 9/10</b></div></div>
-    <div class="card reveal on"><div class="em">🎓🍇</div><span class="tag hot">КРЫША</span><h3>Историк + контрольный пакет</h3><p>Держит контрольный пакет акций изюма. План захвата от Timylya777: «выкупаешь голосами за единую Россию и всё». Звучит как план.</p><div class="price"><b>угроза: 10/10</b></div></div>
+    <div class="card reveal on"><div class="em">🍇🕶️</div><span class="tag hot">ГЛАВАРЬ</span><h3>Изюмчик</h3><p>Серый кардинал. «У изюмчика спроси» — 09:42. Все запретные данные из архива — через него. Держит общажный рынок сухофруктов.</p><div class="price"><b>угроза: 9/10</b></div></div>
+    <div class="card reveal on"><div class="em">🎓🍇</div><span class="tag hot">КРЫША</span><h3>Историк + контрольный пакет</h3><p>Держит контрольный пакет акций изюма. План захвата: «выкупаешь голосами за единую Россию и всё». Звучит как план.</p><div class="price"><b>угроза: 10/10</b></div></div>
     <div class="card reveal on"><div class="em">🧾🍇</div><h3>Долг за изюм</h3><p>Маша — должница картеля: «я тебе еще за изюм не сделала» (16:43). «У меня все изюм проверяла» — физика сдана, долг висит. Картель помнит всё.</p><div class="price"><b>статус: долг</b></div></div>
-    <div class="card reveal on"><div class="em">🍬🚫</div><h3>Анти-сладкое лобби</h3><p>koilsx: «Мне просто противно от сладкого» (19:19). Наш естественный союзник. Вербуем в помидорную армию — кисло-сладкий фронт.</p><div class="price"><b>шанс: союзник</b></div></div>
+    <div class="card reveal on"><div class="em">🍬🚫</div><h3>Анти-сладкое лобби</h3><p>«Мне просто противно от сладкого» (19:19). Наш естественный союзник. Вербуем в помидорную армию — кисло-сладкий фронт.</p><div class="price"><b>шанс: союзник</b></div></div>
     <div class="card reveal on"><div class="em">🍅⚔️🍇</div><span class="tag meme">СРАВНЕНИЕ</span><h3>Почему помидор лучше</h3><p>Изюм: мелкий, сладкий, давно на рынке, в преподов кидать несолидно.<br>Помидор: сочный, громкий, лопается красиво, 30₽ и ты легенда 1 этажа.</p><div class="price"><b>выбор очевиден</b></div></div>
   </div>
   <div class="chat reveal" style="margin-top:12px">
-    <div class="msg m-left"><small>Ms.Sirnik • 09:42</small>У изюмчика спроси</div>
-    <div class="msg m-left"><small>Ms.Sirnik • 16:06</small>Изюм поесть</div>
-    <div class="msg m-right"><small>номном (Маша) • 16:43</small>я тебе еще за изюм не сделала</div>
-    <div class="msg m-right"><small>номном (Маша) • 16:45</small>вот поэтому и говорю, что не уверена, но ес чо у меня все изюм проверяла</div>
-    <div class="msg m-left"><small>koilsx • 19:19</small>Мне просто противно от сладкого</div>
+    <div class="msg m-left"><small>09:42</small>У изюмчика спроси</div>
+    <div class="msg m-left"><small>16:06</small>Изюм поесть</div>
+    <div class="msg m-right"><small>Маша • 16:43</small>я тебе еще за изюм не сделала</div>
+    <div class="msg m-right"><small>Маша • 16:45</small>вот поэтому и говорю, что не уверена, но ес чо у меня все изюм проверяла</div>
+    <div class="msg m-left"><small>19:19</small>Мне просто противно от сладкого</div>
   </div>
+  <table class="bribe reveal">
+    <tr><th></th><th>ВЗЯТКИ ИСТОРИКУ • ПРЕЙСКУРАНТ</th><th>ИТОГ</th></tr>
+    <tr><td>🐎</td><td><b>Барашка</b> — целиком, живьём, на 1 этаж</td><td>Спиздят. Отрабатывать — вместе с бараном</td></tr>
+    <tr><td>🗳️</td><td><b>Голоса за единую Россию</b> — пакетом</td><td>Контрольный пакет акций изюма — твой</td></tr>
+    <tr><td>🍅</td><td><b>Набор «В историка» ×3</b> — из нашего ларька</td><td>Снисхождение. Пятёрка не гарантируется</td></tr>
+    <tr><td>👩‍❤️‍👨</td><td><b>Объятья историка</b> — по пути с новоселья</td><td>+ в карму. Проверено отделом заботы</td></tr>
+  </table>
 </section>
 
 <section id="rozysk">
@@ -272,6 +302,43 @@ footer{padding:30px 0 60px;color:var(--mut);font-size:13px;text-align:center}
     <img src="img/rozysk-v2.jpg" alt="Плакаты «Wanted» — глава изюмного картеля и главный дилер, награда 5 помидоров" loading="lazy">
     <figcaption>Награда за каждого: <b>5 помидоров</b>. Опасны для незнающих историю и пропускающих пары. Кидаться помидорами в разыскиваемых — строго по прейскуранту ларька.</figcaption>
   </figure>
+  <div class="gallery">
+    <figure class="shot reveal"><div class="art">🤖🧹</div><figcaption><b>Экспонат: швабра Т1000</b>Орудие, перепутанное с пылесосом. Про пылесос — отдельная история, она не здесь.</figcaption></figure>
+    <figure class="shot reveal"><div class="art">🐎🍅</div><figcaption><b>Экспонат: барашка доставки</b>Без пробок, вовремя, в отличие от хозяйки. Взятки не берёт — проверено историком.</figcaption></figure>
+  </div>
+</section>
+
+<section id="chat">
+  <div class="kicker">ДОКУМЕНТАЛЬНЫЙ ЛОР • 15.09 • КАК ОТКРЫЛСЯ ЛАРЁК</div>
+  <h2>Тот самый вечер</h2>
+  <p class="lead">Ничего не выдумано. Реальные цитаты, реальный стартап.</p>
+  <div class="chat reveal">
+    <div class="msg m-left"><small>20:13</small>Так у нее помидоры есть, она не голодающая</div>
+    <div class="msg m-right"><small>Маша • 20:13</small>я помидоры не оч люблю<br>я их ем через силу</div>
+    <div class="msg m-left"><small>20:13</small>Нам раздавать должна. Зажралась</div>
+    <div class="msg m-right"><small>Маша • 20:13</small>с вероятность 100 процентов, что я просру все в первый день</div>
+    <div class="msg m-green"><small>Стартапер • 20:14</small>Так смотри, берёшь помидоры, пару коробок, приходишь в колледж и на первом этаже из коробок делаешь ларёк, и продаёшь типо там 20-30р за штуку, и так в плюс выходишь</div>
+    <div class="msg m-right"><small>Маша • 20:14</small>делаю</div>
+    <div class="msg m-left"><small>20:14</small>Их будут брать чисто чтоб в преподов кидать?</div>
+    <div class="msg m-right"><small>Маша • 20:14</small>в историка</div>
+    <div class="msg m-left"><small>20:15</small>Это типо покупаем акции ларька</div>
+    <div class="msg m-left"><small>20:15</small>Изюм конкурировать будет. Давно на рынке, а тут мы только выходим</div>
+    <div class="msg m-green"><small>Стартапер • 20:16</small>Так контрольный пакет акций изюма у историка, его просто голосами за единую Россию покупаешь и всё</div>
+    <div class="msg m-left"><small>Скептик • 20:23</small>Чё-то дорого. Эт какого размера помидоры</div>
+    <div class="msg m-green"><small>Стартапер • 20:24</small>Так ну это же поштучно и прямо в колледже. И ваще ты не великий стартапер вайбкодер и миллиардер (в перспективе), так что не спорь мне тут</div>
+  </div>
+
+  <div class="vs">
+    <div class="us"><b>🍅 Ларёк Маши</b><br><small>• свежак с дома<br>• 30₽ между парами<br>• казачка на барашке — без пробок<br>• акции ларька для своих<br>• новоселье в пятницу — дегустация</small></div>
+    <div class="them"><b>🍇 Изюмный картель (враги)</b><br><small>• давно на рынке, а мы только выходим<br>• контрольный пакет — у историка<br>• выкупается голосами<br>• в стену кидать бесполезно — не лопается</small></div>
+  </div>
+</section>
+
+<section id="catalog">
+  <div class="kicker">МАГАЗИН • ОДНА ИЗ ГЛАВ ЛОРА</div>
+  <h2>Ларек Маши</h2>
+  <p class="lead">Цены — из бизнес-плана стартапера. Промокод <b style="color:#ffd60a">КАЗАЧКА</b> — скидка 15%. Промокод <b style="color:#ffd60a">ИСТОРИК</b> — ничего не даст, но историк поставит 5.</p>
+  <div class="grid" id="grid"></div>
 </section>
 
 <section>
@@ -289,9 +356,21 @@ footer{padding:30px 0 60px;color:var(--mut);font-size:13px;text-align:center}
   <h2>Студенты говорят</h2>
   <div class="rev">
     <blockquote class="reveal">«Лучше мне деньги кидайте, надежнее будет»<br><b>— Маша, финансовый директор</b></blockquote>
-    <blockquote class="reveal">«Пропитание голодающим»<br><b>— Ms.Sirnik, отдел заботы</b></blockquote>
-    <blockquote class="reveal">«Груши мои не забудь завтра»<br><b>— koilsx, логистика</b></blockquote>
-    <blockquote class="reveal">«Где мой виноград»<br><b>— Ms.Sirnik, контроль качества</b></blockquote>
+    <blockquote class="reveal">«Пропитание голодающим»<br><b>— отдел заботы</b></blockquote>
+    <blockquote class="reveal">«Груши мои не забудь завтра»<br><b>— логистика</b></blockquote>
+    <blockquote class="reveal">«Где мой виноград»<br><b>— контроль качества</b></blockquote>
+    <blockquote class="reveal">«Моя работа по общаге у 4 человек списано точь в точь»<br><b>— Маша, про авторские права</b></blockquote>
+    <blockquote class="reveal">«Луивитон это для меня. Успех это для меня»<br><b>— таро-расклад, 15.09</b></blockquote>
+  </div>
+</section>
+
+<section>
+  <div class="kicker">ВАКАНСИИ ЛАРЬКА • ОПЛАТА ПОМИДОРАМИ</div>
+  <h2>Нужны руки</h2>
+  <div class="steps">
+    <div class="step reveal"><b>🧊</b><br><strong>Донести холодильник</strong><br><span style="color:var(--mut);font-size:14px">До общаги. Знакомые в общаге приветствуются. Оплата — помидорами и уважением.</span></div>
+    <div class="step reveal"><b>🎉</b><br><strong>Дегустация на новоселье</strong><br><span style="color:var(--mut);font-size:14px">Отмечаем новоселье Маши. Объятья историка по пути — плюс в карму.</span></div>
+    <div class="step reveal"><b>🐎</b><br><strong>Выгул барашки</strong><br><span style="color:var(--mut);font-size:14px">Осторожно: могут спиздить. Отработка на баране — за счёт заведения.</span></div>
   </div>
 </section>
 
@@ -330,7 +409,7 @@ const PRODUCTS=[
  {id:1,em:"🍅",t:"Классический",d:"Свой, домашний. Ешь сам или кидай в историка — выбор за тобой.",p:30,old:50,tag:"ХИТ",cls:"hot"},
  {id:2,em:"🍅🐎",t:"Казачий на барашке",d:"С доставкой без пробок. Маша опаздывает в шарагу — помидоры приезжают вовремя.",p:50,old:70,tag:"БЕЗ ПРОБОК",cls:"meme"},
  {id:3,em:"🎯🍅",t:"Набор «В историка» ×3",d:"Три отборных снаряда. Метание — на свой риск. Пятёрка автоматом не гарантируется.",p:70,old:90,tag:"МЕМ",cls:"meme"},
- {id:4,em:"🍐🍅",t:"Помидоры + груши",d:"Для koilsx и всех, кто не забыл. Груши завтра, помидоры сегодня.",p:150,old:190,tag:"ДУО",cls:""},
+ {id:4,em:"🍐🍅",t:"Помидоры + груши",d:"Для логистики и всех, кто не забыл. Груши завтра, помидоры сегодня.",p:150,old:190,tag:"ДУО",cls:""},
  {id:5,em:"🍇🍅",t:"Помидоры + виноград",d:"Закрывает вопрос «Где мой виноград». Виноград — где-то. Помидоры — точно.",p:150,old:180,tag:"",cls:""},
  {id:6,em:"📈🍅",t:"Акция ларька",d:"Стань совладельцем коробок на 1 этаже. Дивиденды — помидорами. Риск просрать всё в первый день — 100%.",p:500,old:600,tag:"IPO",cls:"hot"},
 ];
@@ -377,7 +456,7 @@ function boom(ems){
 addEventListener("pointermove",e=>{if(e.pointerType==="touch")return;const g=document.getElementById("glow");g.style.left=e.clientX+"px";g.style.top=e.clientY+"px"});
 addEventListener("keydown",e=>{if(e.key==="Escape")toggleCart(false)});
 // open badge by time
-(function(){const h=new Date().getHours();const el=document.getElementById("open");if(h<8||h>18){el.textContent="ЛАРЁК ЗАКРЫТ • ОТКРОЕТСЯ НА БОЛЬШОЙ ПЕРЕМЕНЕ"}})();
+(function(){const h=new Date().getHours();const el=document.getElementById("open");if(h<8||h>18){el.textContent="ЛЕТПИСЬ ЖИВА • ЛАРЁК ОТКРОЕТСЯ НА БОЛЬШОЙ ПЕРЕМЕНЕ"}})();
 // reveal
 const io=new IntersectionObserver(es=>es.forEach(e=>e.isIntersecting&&e.target.classList.add("on")),{threshold:.1});
 document.querySelectorAll(".reveal").forEach(el=>io.observe(el));
