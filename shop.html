@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Ларек Маши • ТЭС-11 ЛОР-ХАБ</title>
+<meta name="description" content="Магазин ларька Маши: помидоры по 30₽, набор «В историка», акции ларька.">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body class="shop">
+<div id="boom"></div>
+
+<nav><div class="wrap nav-in">
+  <div class="logo">🍅</div>
+  <div class="brand"><b>МАША • ПОМИДОРЫ</b><span>ларёк на 1 этаже • глава 03</span></div>
+  <div class="nav-links">
+    <a href="index.html">Хаб</a>
+    <a href="lore.html">Хроника</a>
+    <a href="heroes.html">Герои</a>
+    <button class="cart-btn" onclick="toggleCart()">Корзина<i id="count">0</i></button>
+  </div>
+</div></nav>
+
+<div class="marquee"><div>🍅 СВЕЖИЕ ПОМИДОРЫ ПО 30₽ ПРЯМО В КОЛЛЕДЖЕ • ВОЙНА С ИЗЮМНЫМ КАРТЕЛЕМ • КИДАТЬ В ИСТОРИКА — НА СВОЙ РИСК • КАЗАЧКА НА БАРАШКЕ ДОСТАВИТ • ГРУШИ НЕ ЗАБУДЬ •&nbsp;🍅 СВЕЖИЕ ПОМИДОРЫ ПО 30₽ ПРЯМО В КОЛЛЕДЖЕ • ВОЙНА С ИЗЮМНЫМ КАРТЕЛЕМ • КИДАТЬ В ИСТОРИКА — НА СВОЙ РИСК • КАЗАЧКА НА БАРАШКЕ ДОСТАВИТ • ГРУШИ НЕ ЗАБУДЬ •&nbsp;</div></div>
+
+<div class="wrap">
+<p class="crumbs"><a href="index.html">Хаб</a> / Магазин</p>
+<header class="hero">
+  <div>
+    <span class="badge"><span class="pulse"></span><span id="open">ЛАРЁК ОТКРЫТ • 1 ЭТАЖ • ИЗ КОРОБОК</span></span>
+    <h1>МАША<br><span class="stroke">ПРОДАЁТ</span><br><span class="tom">ПОМИДОРЫ 🍅</span></h1>
+    <p class="sub">Глава 03 лора: помидоры есть, но <b>«ем их через силу»</b>. Поэтому берёшь пару коробок, приходишь в колледж и на первом этаже делаешь ларёк. <b>По 20–30₽ за штуку — прямо между парами.</b></p>
+    <div class="cta-row">
+      <a class="btn btn-red" href="#catalog">🍅 Взять помидоры</a>
+      <a class="btn btn-ghost" href="lore.html">📜 Как всё началось</a>
+    </div>
+    <div class="stats">
+      <div class="stat"><b>30 ₽/шт</b><span>поштучно в колледже, без маркетплейсов</span></div>
+      <div class="stat"><b>100%</b><span>вероятность «просру всё в первый день» — цитата основателя</span></div>
+      <div class="stat"><b>1 этаж</b><span>ларек из коробок, доставка до парты</span></div>
+    </div>
+  </div>
+  <div class="tom-stage">
+    <div class="price-tag">30₽/шт <s>50₽</s><br><small>студентам ТЭС-11</small></div>
+    <div class="tom-big">🍅</div>
+    <span class="float" style="left:12%;top:18%">🐎</span>
+    <span class="float" style="right:16%;top:30%;animation-delay:1s">🧀</span>
+    <span class="float" style="left:20%;bottom:24%;animation-delay:2s">🍇</span>
+    <span class="float" style="right:12%;bottom:18%;animation-delay:.5s">🍐</span>
+    <div class="larek">📦 ларёк Маши • сегодня: <b id="today">1 этаж, большая перемена</b></div>
+  </div>
+</header>
+
+<section id="catalog">
+  <div class="kicker">КАТАЛОГ • СОБРАНО ИЗ КОРОБОК</div>
+  <h2>Что продаётся</h2>
+  <p class="lead">Цены — из бизнес-плана стартапера. Промокод <b style="color:#ffd60a">КАЗАЧКА</b> — скидка 15%. Промокод <b style="color:#ffd60a">ИСТОРИК</b> — ничего не даст, но историк поставит 5.</p>
+  <div class="grid" id="grid"></div>
+</section>
+
+<section>
+  <div class="kicker">СХЕМА • ПРОЩЕ ВПР ПО ИСТОРИИ</div>
+  <h2>Как купить за 3 шага</h2>
+  <div class="steps">
+    <div class="step reveal"><b>1️⃣</b><br><strong>Подойди на 1 этаж</strong><br><span style="color:var(--mut);font-size:14px">Большая перемена. Ищи коробки и очередь из ТЭС-11. Без пробок — Маша на барашке уже там.</span></div>
+    <div class="step reveal"><b>2️⃣</b><br><strong>Выбери и накидай в корзину</strong><br><span style="color:var(--mut);font-size:14px">Можно поштучно, можно набором «В историка» (3 шт). Груши и виноград — по предзаказу, спроси.</span></div>
+    <div class="step reveal"><b>3️⃣</b><br><strong>Оплати и не голодай</strong><br><span style="color:var(--mut);font-size:14px">Наличка, перевод, пропитание голодающим. Пропитание — это ты.</span></div>
+  </div>
+</section>
+
+<section>
+  <div class="kicker">ВАКАНСИИ ЛАРЬКА • ОПЛАТА ПОМИДОРАМИ</div>
+  <h2>Нужны руки</h2>
+  <div class="steps">
+    <div class="step reveal"><b>🧊</b><br><strong>Донести холодильник</strong><br><span style="color:var(--mut);font-size:14px">До общаги. Знакомые в общаге приветствуются. Оплата — помидорами и уважением.</span></div>
+    <div class="step reveal"><b>🎉</b><br><strong>Дегустация на новоселье</strong><br><span style="color:var(--mut);font-size:14px">Отмечаем новоселье Маши. Объятья историка по пути — плюс в карму.</span></div>
+    <div class="step reveal"><b>🐎</b><br><strong>Выгул барашки</strong><br><span style="color:var(--mut);font-size:14px">Осторожно: могут спиздить. Отработка на баране — за счёт заведения.</span></div>
+  </div>
+</section>
+
+<section id="order">
+  <div class="order reveal">
+    <div class="kicker" style="color:#ffe9e6">ПРЕДЗАКАЗ • ЧТОБЫ МАША ВЗЯЛА ХВАТИТ КОРОБОК</div>
+    <h2>Забронировать помидоры</h2>
+    <p style="color:#ffe9e6;opacity:.9">Оставь имя — Маша привезёт на барашке. Оплата на месте. Кидать в историка — только купленными у нас (шутка. почти).</p>
+    <div class="form">
+      <input id="nm" placeholder="Твоё имя (например, MadG33k)">
+      <select id="pk"><option>1 помидор — 30₽</option><option>3 помидора — 70₽ (в историка набор)</option><option>5 помидоров + груша — 150₽</option><option>Акция ларька — 500₽</option></select>
+      <button onclick="order()">🍅 Заказать у Маши</button>
+      <small id="ord" style="color:#fff"></small>
+    </div>
+  </div>
+</section>
+
+<footer><a href="index.html" style="color:var(--acc);text-decoration:none">← в хаб</a><br><br>сделано великим стартапером вайбкодером и миллиардером (в перспективе) • ТЭС-11 студенты • помидоры не возвращаются, они съедаются<br>Маша — казачка, опаздывает в шарагу, потому что автобус. Поймите.</footer>
+</div>
+
+<div id="scrim" onclick="toggleCart(false)"></div>
+<div id="drawer" role="dialog" aria-label="Корзина">
+  <div style="display:flex;justify-content:space-between;align-items:center;gap:10px">
+    <h3 style="min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">🧺 Корзина ларька</h3>
+    <button class="btn btn-ghost" style="padding:8px 14px;flex:none" onclick="toggleCart()">Закрыть</button>
+  </div>
+  <div id="items"></div>
+  <div class="promo"><input id="promo" placeholder="Промокод (КАЗАЧКА)" autocomplete="off"><button class="btn btn-ghost" style="padding:12px 16px;flex:none" onclick="applyPromo()">ОК</button></div>
+  <div style="display:flex;justify-content:space-between;gap:10px;font-weight:900;font-size:18px"><span>Итого:</span><span id="total" style="white-space:nowrap">0 ₽</span></div>
+  <button id="checkoutBtn" class="btn btn-red" style="width:100%;justify-content:center;margin-top:12px" onclick="checkout()">Оформить • написать Маше в ТГ</button>
+  <p style="color:var(--mut);font-size:12px;margin-top:8px">Нажимая — откроется t.me/@rramfff с готовым текстом заказа. Деньги — Маше, помидоры — тебе.</p>
+</div>
+
+<script>
+const PRODUCTS=[
+ {id:1,em:"🍅",t:"Классический",d:"Свой, домашний. Ешь сам или кидай в историка — выбор за тобой.",p:30,old:50,tag:"ХИТ",cls:"hot"},
+ {id:2,em:"🍅🐎",t:"Казачий на барашке",d:"С доставкой без пробок. Маша опаздывает в шарагу — помидоры приезжают вовремя.",p:50,old:70,tag:"БЕЗ ПРОБОК",cls:"meme"},
+ {id:3,em:"🎯🍅",t:"Набор «В историка» ×3",d:"Три отборных снаряда. Метание — на свой риск. Пятёрка автоматом не гарантируется.",p:70,old:90,tag:"МЕМ",cls:"meme"},
+ {id:4,em:"🍐🍅",t:"Помидоры + груши",d:"Для логистики и всех, кто не забыл. Груши завтра, помидоры сегодня.",p:150,old:190,tag:"ДУО",cls:""},
+ {id:5,em:"🍇🍅",t:"Помидоры + виноград",d:"Закрывает вопрос «Где мой виноград». Виноград — где-то. Помидоры — точно.",p:150,old:180,tag:"",cls:""},
+ {id:6,em:"📈🍅",t:"Акция ларька",d:"Стань совладельцем коробок на 1 этаже. Дивиденды — помидорами. Риск просрать всё в первый день — 100%.",p:500,old:600,tag:"IPO",cls:"hot"},
+];
+let cart=JSON.parse(localStorage.getItem("masha-cart")||"[]");
+let disc=0;
+const grid=document.getElementById("grid");
+function renderProducts(){
+ grid.innerHTML=PRODUCTS.map(x=>`<div class="card reveal on"><div class="em">${x.em}</div>${x.tag?`<span class="tag ${x.cls}">${x.tag}</span>`:""}<h3>${x.t}</h3><p>${x.d}</p><div class="price"><b>${x.p} ₽</b><s>${x.old} ₽</s></div><button class="add" onclick="add(${x.id})">В корзину 🧺</button></div>`).join("");
+}
+function save(){localStorage.setItem("masha-cart",JSON.stringify(cart));renderCart()}
+function add(id){const f=cart.find(c=>c.id===id);f?f.q++:cart.push({id,q:1});save();boom("🍅");toggleCart(true)}
+function ch(id,d){const f=cart.find(c=>c.id===id);if(!f)return;f.q+=d;if(f.q<=0)cart=cart.filter(c=>c.id!==id);save()}
+function applyPromo(){const v=document.getElementById("promo").value.trim().toUpperCase();if(v==="КАЗАЧКА"){disc=.15;alert("Казачка одобряет: -15%")}else if(v==="ИСТОРИК"){disc=0;alert("Историк ставит тебе 5, но скидки нет")}else{disc=0;alert("Такого промокода нет. Попробуй КАЗАЧКА")}renderCart()}
+function sum(){return cart.reduce((s,c)=>{const p=PRODUCTS.find(x=>x.id===c.id);return s+p.p*c.q},0)}
+function renderCart(){
+ document.getElementById("count").textContent=cart.reduce((s,c)=>s+c.q,0);
+ const box=document.getElementById("items");
+ if(!cart.length)box.innerHTML="<p style='color:var(--mut);padding:12px 0'>Пока пусто. Маша уже ставит коробки на 1 этаже…</p>";
+ else box.innerHTML=cart.map(c=>{const p=PRODUCTS.find(x=>x.id===c.id);return `<div class="row"><span>${p.em} ${p.t} × ${c.q}</span><span class="qty"><button onclick="ch(${c.id},-1)" aria-label="Меньше">−</button><b>${p.p*c.q} ₽</b><button onclick="ch(${c.id},1)" aria-label="Больше">+</button></span></div>`}).join("");
+  const t=Math.round(sum()*(1-disc));
+  document.getElementById("total").textContent=t+" ₽"+(disc?" (−15%)":"");
+}
+function toggleCart(force){const d=document.getElementById("drawer");const s=document.getElementById("scrim");const open=force===true?true:force===false?false:!d.classList.contains("open");d.classList.toggle("open",open);s.classList.toggle("open",open);document.body.style.overflow=open?"hidden":""}
+function checkout(){
+ if(!cart.length){alert("Сначала накидай помидоров 🍅");return}
+ const t=Math.round(sum()*(1-disc));
+ const txt=encodeURIComponent(`Привет, Маша! 🍅 Я из ТЭС-11, хочу помидоры:\n`+cart.map(c=>{const p=PRODUCTS.find(x=>x.id===c.id);return `• ${p.t} × ${c.q} — ${p.p*c.q}₽`}).join("\n")+`\nИтого: ${t}₽`);
+ window.open("https://t.me/rramfff?text="+txt,"_blank");
+}
+function order(){
+ const n=document.getElementById("nm").value||"студент ТЭС-11";
+ const p=document.getElementById("pk").value;
+ document.getElementById("ord").textContent=`Готово, ${n}! Маша уже пакует «${p}» в коробки. Напиши ей в ТГ @rramfff 🐎`;
+ boom("🍅🐎🍐🍇");
+}
+function boom(ems){
+ const box=document.getElementById("boom");
+ for(let i=0;i<24;i++){const s=document.createElement("span");s.textContent=[...ems][Math.floor(Math.random()*[...ems].length)]||"🍅";
+ s.style.cssText=`position:absolute;left:${40+Math.random()*20}%;top:60%;transition:all 1.2s ease-out`;box.appendChild(s);
+ requestAnimationFrame(()=>{s.style.transform=`translate(${(Math.random()-.5)*500}px,${-Math.random()*500}px) rotate(${Math.random()*360}deg)`;s.style.opacity="0"});
+ setTimeout(()=>s.remove(),1300)}
+}
+addEventListener("pointermove",e=>{if(e.pointerType==="touch")return;const g=document.getElementById("glow");if(g){g.style.left=e.clientX+"px";g.style.top=e.clientY+"px"}});
+addEventListener("keydown",e=>{if(e.key==="Escape")toggleCart(false)});
+(function(){const h=new Date().getHours();const el=document.getElementById("open");if(h<8||h>18){el.textContent="ЛАРЁК ЗАКРЫТ • ОТКРОЕТСЯ НА БОЛЬШОЙ ПЕРЕМЕНЕ"}})();
+const io=new IntersectionObserver(es=>es.forEach(e=>e.isIntersecting&&e.target.classList.add("on")),{threshold:.1});
+document.querySelectorAll(".reveal").forEach(el=>io.observe(el));
+renderProducts();renderCart();
+</script>
+</body>
+</html>
