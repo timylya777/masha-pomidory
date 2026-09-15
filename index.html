@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>МАША • ПОМИДОРЫ • ларёк на 1 этаже</title>
+<meta name="description" content="Маша продаёт помидоры прямо в колледже. По 30₽ за штуку. ТЭС-11 approved. Кидать в историка — на свой риск.">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#0d0707; --bg2:#1a0b0b; --card:rgba(255,255,255,.06);
+  --red:#ff3b30; --tom:#ff4d2e; --green:#7dff6a; --yellow:#ffd60a;
+  --txt:#fff5ee; --mut:#c9a9a3; --line:rgba(255,255,255,.12);
+  --r:22px;
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--txt);font-family:system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif;overflow-x:hidden;min-height:100vh}
+body::before{content:"";position:fixed;inset:0;z-index:-2;
+  background:
+    radial-gradient(700px 400px at 15% 5%, #ff3b3044, transparent 60%),
+    radial-gradient(600px 500px at 90% 20%, #ff9f0a33, transparent 60%),
+    radial-gradient(800px 600px at 50% 110%, #7d101033, transparent 60%),
+    linear-gradient(180deg,#0d0707,#1a0b0b);}
+.grain{position:fixed;inset:0;z-index:50;pointer-events:none;opacity:.07;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='.9'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)' opacity='.6'/%3E%3C/svg%3E");}
+#glow{position:fixed;width:520px;height:520px;left:0;top:0;z-index:-1;pointer-events:none;
+  background:radial-gradient(circle, #ff3b3026, transparent 65%);transform:translate(-50%,-50%);}
+.wrap{max-width:1080px;margin:0 auto;padding:0 18px}
+/* NAV */
+nav{position:sticky;top:0;z-index:20;backdrop-filter:blur(16px);background:rgba(13,7,7,.72);border-bottom:1px solid var(--line)}
+.nav-in{display:flex;align-items:center;gap:10px;padding:10px 0}
+.logo{width:40px;height:40px;flex:none;border-radius:13px;display:grid;place-items:center;font-size:24px;
+  background:linear-gradient(135deg,#ff3b30,#ff9f0a);box-shadow:0 8px 30px #ff3b3066;animation:bob 3s ease-in-out infinite}
+@keyframes bob{0%,100%{transform:rotate(-6deg) scale(1)}50%{transform:rotate(6deg) scale(1.07)}}
+.brand{min-width:0}
+.brand b{font-size:14px;letter-spacing:.1em;white-space:nowrap}
+.brand span{display:block;font-size:11px;color:var(--mut);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.nav-links{margin-left:auto;display:flex;gap:8px;align-items:center;flex:none}
+.nav-links a{color:var(--txt);text-decoration:none;font-size:13px;padding:8px 12px;border-radius:100px;border:1px solid var(--line);background:rgba(255,255,255,.04);white-space:nowrap}
+.cart-btn{cursor:pointer;border:1px solid var(--line);background:#fff;color:#111;font-weight:800;border-radius:100px;padding:9px 14px;font-size:14px;white-space:nowrap;-webkit-tap-highlight-color:transparent}
+@media(max-width:600px){
+  .nav-links a{display:none}
+  .brand b{font-size:12.5px}
+  .brand span{font-size:10.5px}
+  .cart-btn{padding:8px 12px;font-size:13px}
+}
+.cart-btn i{font-style:normal;background:#ff3b30;color:#fff;border-radius:100px;min-width:22px;height:22px;display:inline-grid;place-items:center;font-size:12px;padding:0 6px;margin-left:6px}
+/* MARQUEE */
+.marquee{overflow:hidden;white-space:nowrap;border-block:1px solid var(--line);background:#140808;padding:10px 0;font-weight:800;letter-spacing:.08em;font-size:13px}
+.marquee div{display:inline-block;animation:mq 18s linear infinite}
+@keyframes mq{to{transform:translateX(-50%)}}
+/* HERO */
+.hero{padding:44px 0 10px;display:grid;gap:22px}
+@media(min-width:860px){.hero{grid-template-columns:1.15fr .85fr;align-items:center;padding:64px 0 20px}}
+.badge{display:inline-flex;gap:8px;align-items:center;font-size:12.5px;font-weight:700;letter-spacing:.06em;
+  border:1px solid #7dff6a55;background:#7dff6a14;color:#c6ffb8;padding:8px 14px;border-radius:100px}
+.pulse{width:9px;height:9px;border-radius:50%;background:var(--green);box-shadow:0 0 0 0 #7dff6a88;animation:pl 1.6s infinite}
+@keyframes pl{70%{box-shadow:0 0 0 10px transparent}100%{box-shadow:0 0 0 0 transparent}}
+h1{font-size:clamp(40px,12vw,110px);line-height:.92;font-weight:900;letter-spacing:-.04em;margin:14px 0;overflow-wrap:break-word}
+h1 .stroke{color:transparent;-webkit-text-stroke:2px var(--txt)}
+h1 .tom{background:linear-gradient(92deg,#ff3b30 10%,#ff9f0a 60%,#ffd60a);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 10px 30px #ff3b3055)}
+.sub{color:var(--mut);font-size:16px;line-height:1.6;max-width:46ch}
+.sub b{color:var(--txt)}
+.cta-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+.btn{border:0;cursor:pointer;border-radius:100px;padding:15px 24px;font-weight:900;font-size:15px;text-decoration:none;display:inline-flex;align-items:center;gap:8px}
+.btn-red{background:linear-gradient(135deg,#ff3b30,#ff6a00);color:#fff;box-shadow:0 12px 34px #ff3b3055;transition:.2s}
+.btn-red:hover{transform:translateY(-2px) scale(1.02)}
+.btn-ghost{background:rgba(255,255,255,.07);color:var(--txt);border:1px solid var(--line)}
+.stats{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+.stat{flex:1;min-width:130px;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:14px}
+.stat b{font-size:22px;display:block}
+.stat span{font-size:12px;color:var(--mut)}
+/* Tomato visual */
+.tom-stage{position:relative;min-height:340px;display:grid;place-items:center;background:radial-gradient(circle at 50% 60%, #ff3b3028, transparent 65%);border:1px solid var(--line);border-radius:28px;overflow:hidden}
+.tom-big{font-size:clamp(140px,28vw,220px);filter:drop-shadow(0 30px 60px #ff3b3088);animation:bob 4s ease-in-out infinite;user-select:none}
+.float{position:absolute;font-size:30px;opacity:.9;animation:fl 6s ease-in-out infinite}
+@keyframes fl{0%,100%{transform:translateY(0) rotate(-10deg)}50%{transform:translateY(-22px) rotate(12deg)}}
+.price-tag{position:absolute;right:14px;top:14px;background:#fff;color:#111;font-weight:900;border-radius:16px;padding:10px 14px;rotate:6deg;box-shadow:0 10px 30px #0008}
+.price-tag s{color:#888;font-weight:600}
+.larek{position:absolute;left:14px;bottom:14px;max-width:calc(100% - 28px);background:rgba(0,0,0,.6);backdrop-filter:blur(8px);border:1px solid var(--line);border-radius:14px;padding:10px 14px;font-size:13px}
+@media(max-width:600px){
+  .tom-stage{min-height:280px}
+  .tom-big{font-size:min(44vw,170px)}
+  .stats{gap:8px}
+  .stat{min-width:calc(50% - 4px);flex:1 1 calc(50% - 4px);padding:12px}
+  .stat b{font-size:19px}
+  section{padding:28px 0}
+  .card p{min-height:0}
+}
+/* SECTION */
+section{padding:36px 0}
+h2{font-size:clamp(28px,5vw,46px);letter-spacing:-.03em;line-height:1;margin-bottom:8px}
+.kicker{color:var(--tom);font-weight:800;letter-spacing:.18em;font-size:12px;margin-bottom:10px}
+.lead{color:var(--mut);margin-bottom:18px;line-height:1.6}
+/* CATALOG */
+.grid{display:grid;gap:12px}
+@media(min-width:720px){.grid{grid-template-columns:1fr 1fr}}
+@media(min-width:1020px){.grid{grid-template-columns:1fr 1fr 1fr}}
+.card{background:linear-gradient(180deg,rgba(255,255,255,.09),rgba(255,255,255,.03));border:1px solid var(--line);border-radius:var(--r);padding:18px;position:relative;overflow:hidden;transition:.2s}
+.card:hover{transform:translateY(-4px);border-color:#ff3b3066}
+.card .em{font-size:52px}
+.card h3{margin:10px 0 6px;font-size:19px}
+.card p{color:var(--mut);font-size:14px;line-height:1.55;min-height:44px}
+.tag{position:absolute;top:14px;right:14px;font-size:11px;font-weight:800;letter-spacing:.08em;background:var(--yellow);color:#111;padding:6px 10px;border-radius:100px}
+.tag.hot{background:#ff3b30;color:#fff}
+.tag.meme{background:#7dff6a;color:#0b2b08}
+.price{display:flex;align-items:baseline;gap:8px;margin:12px 0}
+.price b{font-size:26px}
+.price s{color:#8a6f6b}
+.add{width:100%;border:0;cursor:pointer;border-radius:14px;padding:13px;font-weight:900;font-size:14px;background:#fff;color:#111}
+.add:hover{background:var(--yellow)}
+/* CHAT */
+.chat{background:#0f0a0a;border:1px solid var(--line);border-radius:26px;padding:18px;display:grid;gap:10px}
+.msg{max-width:88%;padding:11px 14px;border-radius:16px;font-size:14px;line-height:1.5;border:1px solid var(--line)}
+.msg small{display:block;opacity:.6;font-size:11px;margin-bottom:4px;font-weight:700;letter-spacing:.04em}
+.m-left{background:rgba(255,255,255,.06);border-bottom-left-radius:6px;justify-self:start}
+.m-right{background:linear-gradient(135deg,#ff3b30,#c81e1e);border:0;justify-self:end;border-bottom-right-radius:6px}
+.m-green{background:#123312;border-color:#7dff6a44;justify-self:start;border-bottom-left-radius:6px}
+/* STEPS / VS */
+.steps{display:grid;gap:10px}
+@media(min-width:760px){.steps{grid-template-columns:1fr 1fr 1fr}}
+.step{border:1px dashed #ff3b3066;border-radius:18px;padding:16px;background:#ff3b300d}
+.step b{font-size:30px}
+.vs{display:grid;gap:12px;margin-top:14px}
+@media(min-width:760px){.vs{grid-template-columns:1fr 1fr}}
+.vs div{border-radius:18px;padding:18px;border:1px solid var(--line)}
+.vs .us{background:linear-gradient(135deg,#ff3b3022,#ff9f0a22)}
+.vs .them{background:rgba(255,255,255,.04);opacity:.85}
+/* REVIEWS */
+.rev{display:grid;gap:10px}
+@media(min-width:760px){.rev{grid-template-columns:1fr 1fr}}
+.rev blockquote{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:16px;font-size:14px;line-height:1.6}
+.rev blockquote b{color:var(--yellow)}
+/* ORDER */
+.order{background:linear-gradient(135deg,#ff3b30,#a31212);border-radius:28px;padding:26px;position:relative;overflow:hidden}
+.order::after{content:"🍅";position:absolute;right:-20px;bottom:-40px;font-size:200px;opacity:.18;rotate:-12deg}
+.order h2{color:#fff}
+.form{display:grid;gap:10px;margin-top:16px;position:relative;z-index:1}
+.form input,.form select{background:rgba(0,0,0,.35);border:1px solid rgba(255,255,255,.3);color:#fff;border-radius:14px;padding:14px;font-size:15px;width:100%;outline:none}
+.form input::placeholder{color:#ffd9d4}
+.form button{border:0;border-radius:14px;padding:16px;font-weight:900;font-size:16px;background:#fff;cursor:pointer}
+/* CART drawer */
+#scrim{position:fixed;inset:0;z-index:55;background:rgba(0,0,0,.55);opacity:0;pointer-events:none;transition:.3s}
+#scrim.open{opacity:1;pointer-events:auto}
+#drawer{position:fixed;left:0;right:0;bottom:0;z-index:60;background:#160b0b;border-top:1px solid var(--line);border-radius:24px 24px 0 0;padding:16px 16px calc(16px + env(safe-area-inset-bottom));transform:translateY(110%);transition:.3s;max-height:88vh;max-height:88dvh;overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch}
+#drawer.open{transform:none}
+@media(min-width:640px){#drawer{left:50%;right:auto;bottom:16px;width:min(520px,calc(100vw - 32px));transform:translate(-50%,110%);border:1px solid var(--line);border-radius:24px}#drawer.open{transform:translate(-50%,0)}}
+#drawer .row{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:10px 0;border-bottom:1px dashed rgba(255,255,255,.14);font-size:14px}
+#drawer .row>span:first-child{min-width:0;overflow-wrap:anywhere;line-height:1.4}
+#drawer .qty{flex:none;white-space:nowrap;display:flex;align-items:center;gap:6px}
+#drawer .qty button{background:none;border:1px solid var(--line);color:#fff;border-radius:10px;min-width:34px;min-height:34px;font-size:16px;cursor:pointer;-webkit-tap-highlight-color:transparent}
+.promo{display:flex;gap:8px;margin:12px 0}
+.promo input{flex:1;min-width:0;background:rgba(255,255,255,.07);border:1px solid var(--line);border-radius:12px;padding:12px;color:#fff;font-size:15px}
+#checkoutBtn{white-space:normal;text-align:center;line-height:1.35}
+@media(max-width:380px){
+  #drawer{padding:14px 12px calc(14px + env(safe-area-inset-bottom))}
+  #drawer .row{font-size:13px}
+  .promo{flex-wrap:wrap}
+}
+footer{padding:30px 0 60px;color:var(--mut);font-size:13px;text-align:center}
+.reveal{opacity:0;transform:translateY(18px);transition:.6s}
+.reveal.on{opacity:1;transform:none}
+#boom{position:fixed;inset:0;pointer-events:none;z-index:99;font-size:28px}
+</style>
+</head>
+<body>
+<div class="grain"></div><div id="glow"></div><div id="boom"></div>
+
+<nav><div class="wrap nav-in">
+  <div class="logo">🍅</div>
+  <div class="brand"><b>МАША • ПОМИДОРЫ</b><span>ларёк на 1 этаже • ТЭС-11</span></div>
+  <div class="nav-links">
+    <a href="#catalog">Каталог</a>
+    <a href="#enemies">🍇 Враги</a>
+    <button class="cart-btn" onclick="toggleCart()">Корзина<i id="count">0</i></button>
+  </div>
+</div></nav>
+
+<div class="marquee"><div>🍅 СВЕЖИЕ ПОМИДОРЫ ПО 30₽ ПРЯМО В КОЛЛЕДЖЕ • ВОЙНА С ИЗЮМНЫМ КАРТЕЛЕМ • КИДАТЬ В ИСТОРИКА — НА СВОЙ РИСК • КАЗАЧКА НА БАРАШКЕ ДОСТАВИТ • ГРУШИ НЕ ЗАБУДЬ •&nbsp;🍅 СВЕЖИЕ ПОМИДОРЫ ПО 30₽ ПРЯМО В КОЛЛЕДЖЕ • ВОЙНА С ИЗЮМНЫМ КАРТЕЛЕМ • КИДАТЬ В ИСТОРИКА — НА СВОЙ РИСК • КАЗАЧКА НА БАРАШКЕ ДОСТАВИТ • ГРУШИ НЕ ЗАБУДЬ •&nbsp;</div></div>
+
+<div class="wrap">
+<header class="hero">
+  <div>
+    <span class="badge"><span class="pulse"></span><span id="open">ЛАРЁК ОТКРЫТ • 1 ЭТАЖ • ИЗ КОРОБОК</span></span>
+    <h1>МАША<br><span class="stroke">ПРОДАЁТ</span><br><span class="tom">ПОМИДОРЫ 🍅</span></h1>
+    <p class="sub">Легенда ТЭС-11: помидоры есть, но <b>«ем их через силу»</b>. Поэтому берёшь пару коробок, приходишь в колледж и на первом этаже делаешь ларёк. <b>По 20–30₽ за штуку — прямо между парами.</b> В плюс выходишь, одногруппники не голодают, историк — в безопасности (почти).</p>
+    <div class="cta-row">
+      <a class="btn btn-red" href="#catalog">🍅 Взять помидоры</a>
+      <a class="btn btn-ghost" href="#chat">📜 Лор из чата ТЭС-11</a>
+    </div>
+    <div class="stats">
+      <div class="stat"><b>30 ₽/шт</b><span>поштучно в колледже, без маркетплейсов</span></div>
+      <div class="stat"><b>100%</b><span>вероятность «просру всё в первый день» — цитата основателя</span></div>
+      <div class="stat"><b>1 этаж</b><span>ларек из коробок, доставка до парты</span></div>
+    </div>
+  </div>
+  <div class="tom-stage">
+    <div class="price-tag">30₽/шт <s>50₽</s><br><small>студентам ТЭС-11</small></div>
+    <div class="tom-big">🍅</div>
+    <span class="float" style="left:12%;top:18%">🐎</span>
+    <span class="float" style="right:16%;top:30%;animation-delay:1s">🧀</span>
+    <span class="float" style="left:20%;bottom:24%;animation-delay:2s">🍇</span>
+    <span class="float" style="right:12%;bottom:18%;animation-delay:.5s">🍐</span>
+    <div class="larek">📦 ларёк Маши • сегодня: <b id="today">1 этаж, большая перемена</b></div>
+  </div>
+</header>
+
+<section id="catalog">
+  <div class="kicker">КАТАЛОГ • СОБРАНО ИЗ КОРОБОК</div>
+  <h2>Что продаётся</h2>
+  <p class="lead">Цены — из бизнес-плана Timylya777. Промокод <b style="color:#ffd60a">КАЗАЧКА</b> — скидка 15%. Промокод <b style="color:#ffd60a">ИСТОРИК</b> — ничего не даст, но историк поставит 5.</p>
+  <div class="grid" id="grid"></div>
+</section>
+
+<section id="chat">
+  <div class="kicker">ДОКУМЕНТАЛЬНЫЙ ЛОР • 15.09 • ЧАТ «ТЭС-11 СТУДЕНТЫ»</div>
+  <h2>Как всё началось</h2>
+  <p class="lead">Ничего не выдумано. Реальные цитаты, реальный стартап.</p>
+  <div class="chat reveal">
+    <div class="msg m-left"><small>koilsx • 20:13</small>Так у нее помидоры есть, она не голодающая</div>
+    <div class="msg m-right"><small>номном (Маша) • 20:13</small>я помидоры не оч люблю<br>я их ем через силу</div>
+    <div class="msg m-left"><small>Ms.Sirnik • 20:13</small>Нам раздавать должна. Зажралась</div>
+    <div class="msg m-right"><small>номном (Маша) • 20:13</small>с вероятность 100 процентов, что я просру все в первый день</div>
+    <div class="msg m-green"><small>Timylya777 • стартапер • 20:14</small>Так смотри, берёшь помидоры, пару коробок, приходишь в колледж и на первом этаже из коробок делаешь ларёк, и продаёшь типо там 20-30р за штуку, и так в плюс выходишь</div>
+    <div class="msg m-right"><small>номном (Маша) • 20:14</small>делаю</div>
+    <div class="msg m-left"><small>koilsx • 20:14</small>Их будут брать чисто чтоб в преподов кидать?</div>
+    <div class="msg m-right"><small>номном (Маша) • 20:14</small>в историка</div>
+    <div class="msg m-left"><small>Ms.Sirnik • 20:15</small>Это типо покупаем акции ларька</div>
+    <div class="msg m-left"><small>Ms.Sirnik • 20:15</small>Изюм конкурировать будет. Давно на рынке, а тут мы только выходим</div>
+    <div class="msg m-green"><small>Timylya777 • 20:16</small>Так контрольный пакет акций изюма у историка, его просто голосами за единую Россию покупаешь и всё</div>
+    <div class="msg m-left"><small>MadG33k • 20:23</small>Чё-то дорого. Эт какого размера помидоры</div>
+    <div class="msg m-green"><small>Timylya777 • 20:24</small>Так ну это же поштучно и прямо в колледже. И ваще ты не великий стартапер вайбкодер и миллиардер (в перспективе), так что не спорь мне тут</div>
+  </div>
+
+  <div class="vs">
+    <div class="us"><b>🍅 Ларёк Маши</b><br><small>• свежак с дома<br>• 30₽ между парами<br>• казачка на барашке — без пробок<br>• акции ларька для своих<br>• новоселье в пятницу — дегустация</small></div>
+    <div class="them"><b>🍇 Изюмный картель (враги)</b><br><small>• давно на рынке, а мы только выходим<br>• контрольный пакет — у историка<br>• выкупается голосами<br>• в стену кидать бесполезно — не лопается</small></div>
+  </div>
+</section>
+
+<section id="enemies">
+  <div class="kicker">⚔️ ВОЙНА ЛАРЬКОВ • ПОМИДОРЫ VS ИЗЮМ</div>
+  <h2>Противники с изюмом</h2>
+  <p class="lead">Картель засветился в чате ещё утром 15.09 — задолго до ларька. Разбираем пофамильно, цитаты прилагаются.</p>
+  <div class="grid">
+    <div class="card reveal on"><div class="em">🍇🕶️</div><span class="tag hot">ГЛАВАРЬ</span><h3>Изюмчик</h3><p>Серый кардинал. «У изюмчика спроси» — Ms.Sirnik, 09:42. Все запретные данные из архива Лёхи — через него. Держит общажный рынок сухофруктов.</p><div class="price"><b>угроза: 9/10</b></div></div>
+    <div class="card reveal on"><div class="em">🍇🛁</div><span class="tag meme">ВЕСЬ В ИЗЮМАХ</span><h3>sexy eyes & Jo1ngl</h3><p>«Весь в изюмах» — 09:52, прямо после пачки мемов. Похоже, искупали конкурента в изюме. Жестоко. Липко. Эффективно.</p><div class="price"><b>угроза: 7/10</b></div></div>
+    <div class="card reveal on"><div class="em">🎓🍇</div><span class="tag hot">КРЫША</span><h3>Историк + контрольный пакет</h3><p>Держит контрольный пакет акций изюма. План захвата от Timylya777: «выкупаешь голосами за единую Россию и всё». Звучит как план.</p><div class="price"><b>угроза: 10/10</b></div></div>
+    <div class="card reveal on"><div class="em">🧾🍇</div><h3>Долг за изюм</h3><p>Маша — должница картеля: «я тебе еще за изюм не сделала» (16:43). «У меня все изюм проверяла» — физика сдана, долг висит. Картель помнит всё.</p><div class="price"><b>статус: долг</b></div></div>
+    <div class="card reveal on"><div class="em">🍬🚫</div><h3>Анти-сладкое лобби</h3><p>koilsx: «Мне просто противно от сладкого» (19:19). Наш естественный союзник. Вербуем в помидорную армию — кисло-сладкий фронт.</p><div class="price"><b>шанс: союзник</b></div></div>
+    <div class="card reveal on"><div class="em">🍅⚔️🍇</div><span class="tag meme">СРАВНЕНИЕ</span><h3>Почему помидор лучше</h3><p>Изюм: мелкий, сладкий, давно на рынке, в преподов кидать несолидно.<br>Помидор: сочный, громкий, лопается красиво, 30₽ и ты легенда 1 этажа.</p><div class="price"><b>выбор очевиден</b></div></div>
+  </div>
+  <div class="chat reveal" style="margin-top:12px">
+    <div class="msg m-left"><small>Ms.Sirnik • 09:42</small>У изюмчика спроси</div>
+    <div class="msg m-left"><small>sexy eyes • 09:52</small>Весь в изюмах</div>
+    <div class="msg m-left"><small>Ms.Sirnik • 16:06</small>Изюм поесть</div>
+    <div class="msg m-right"><small>номном (Маша) • 16:43</small>я тебе еще за изюм не сделала</div>
+    <div class="msg m-right"><small>номном (Маша) • 16:45</small>вот поэтому и говорю, что не уверена, но ес чо у меня все изюм проверяла</div>
+    <div class="msg m-left"><small>koilsx • 19:19</small>Мне просто противно от сладкого</div>
+  </div>
+</section>
+
+<section>
+  <div class="kicker">СХЕМА • ПРОЩЕ ВПР ПО ИСТОРИИ</div>
+  <h2>Как купить за 3 шага</h2>
+  <div class="steps">
+    <div class="step reveal"><b>1️⃣</b><br><strong>Подойди на 1 этаж</strong><br><span style="color:var(--mut);font-size:14px">Большая перемена. Ищи коробки и очередь из ТЭС-11. Без пробок — Маша на барашке уже там.</span></div>
+    <div class="step reveal"><b>2️⃣</b><br><strong>Выбери и накидай в корзину</strong><br><span style="color:var(--mut);font-size:14px">Можно поштучно, можно набором «В историка» (3 шт). Груши и виноград — по предзаказу, спроси.</span></div>
+    <div class="step reveal"><b>3️⃣</b><br><strong>Оплати и не голодай</strong><br><span style="color:var(--mut);font-size:14px">Наличка, перевод, пропитание голодающим. Пропитание — это ты.</span></div>
+  </div>
+</section>
+
+<section>
+  <div class="kicker">ОТЗЫВЫ • ПРОВЕРЕНО ГРУППОЙ 406</div>
+  <h2>Студенты говорят</h2>
+  <div class="rev">
+    <blockquote class="reveal">«Лучше мне деньги кидайте, надежнее будет»<br><b>— Маша, финансовый директор</b></blockquote>
+    <blockquote class="reveal">«Пропитание голодающим»<br><b>— Ms.Sirnik, отдел заботы</b></blockquote>
+    <blockquote class="reveal">«Груши мои не забудь завтра»<br><b>— koilsx, логистика</b></blockquote>
+    <blockquote class="reveal">«Где мой виноград»<br><b>— Ms.Sirnik, контроль качества</b></blockquote>
+  </div>
+</section>
+
+<section id="order">
+  <div class="order reveal">
+    <div class="kicker" style="color:#ffe9e6">ПРЕДЗАКАЗ • ЧТОБЫ МАША ВЗЯЛА ХВАТИТ КОРОБОК</div>
+    <h2>Забронировать помидоры</h2>
+    <p style="color:#ffe9e6;opacity:.9">Оставь имя — Маша привезёт на барашке. Оплата на месте. Кидать в историка — только купленными у нас (шутка. почти).</p>
+    <div class="form">
+      <input id="nm" placeholder="Твоё имя (например, MadG33k)">
+      <select id="pk"><option>1 помидор — 30₽</option><option>3 помидора — 70₽ (в историка набор)</option><option>5 помидоров + груша — 150₽</option><option>Акция ларька — 500₽</option></select>
+      <button onclick="order()">🍅 Заказать у Маши</button>
+      <small id="ord" style="color:#fff"></small>
+    </div>
+  </div>
+</section>
+
+<footer>сделано великим стартапером вайбкодером и миллиардером (в перспективе) • ТЭС-11 студенты • помидоры не возвращаются, они съедаются<br>Маша — казачка, опаздывает в шарагу, потому что автобус. Поймите.</footer>
+</div>
+
+<div id="scrim" onclick="toggleCart(false)"></div>
+<div id="drawer" role="dialog" aria-label="Корзина">
+  <div style="display:flex;justify-content:space-between;align-items:center;gap:10px">
+    <h3 style="min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">🧺 Корзина ларька</h3>
+    <button class="btn btn-ghost" style="padding:8px 14px;flex:none" onclick="toggleCart()">Закрыть</button>
+  </div>
+  <div id="items"></div>
+  <div class="promo"><input id="promo" placeholder="Промокод (КАЗАЧКА)" autocomplete="off"><button class="btn btn-ghost" style="padding:12px 16px;flex:none" onclick="applyPromo()">ОК</button></div>
+  <div style="display:flex;justify-content:space-between;gap:10px;font-weight:900;font-size:18px"><span>Итого:</span><span id="total" style="white-space:nowrap">0 ₽</span></div>
+  <button id="checkoutBtn" class="btn btn-red" style="width:100%;justify-content:center;margin-top:12px" onclick="checkout()">Оформить • написать Маше в ТГ</button>
+  <p style="color:var(--mut);font-size:12px;margin-top:8px">Нажимая — откроется t.me/@rramfff с готовым текстом заказа. Деньги — Маше, помидоры — тебе.</p>
+</div>
+
+<script>
+const PRODUCTS=[
+ {id:1,em:"🍅",t:"Классический",d:"Свой, домашний. Ешь сам или кидай в историка — выбор за тобой.",p:30,old:50,tag:"ХИТ",cls:"hot"},
+ {id:2,em:"🍅🐎",t:"Казачий на барашке",d:"С доставкой без пробок. Маша опаздывает в шарагу — помидоры приезжают вовремя.",p:50,old:70,tag:"БЕЗ ПРОБОК",cls:"meme"},
+ {id:3,em:"🎯🍅",t:"Набор «В историка» ×3",d:"Три отборных снаряда. Метание — на свой риск. Пятёрка автоматом не гарантируется.",p:70,old:90,tag:"МЕМ",cls:"meme"},
+ {id:4,em:"🍐🍅",t:"Помидоры + груши",d:"Для koilsx и всех, кто не забыл. Груши завтра, помидоры сегодня.",p:150,old:190,tag:"ДУО",cls:""},
+ {id:5,em:"🍇🍅",t:"Помидоры + виноград",d:"Закрывает вопрос «Где мой виноград». Виноград — где-то. Помидоры — точно.",p:150,old:180,tag:"",cls:""},
+ {id:6,em:"📈🍅",t:"Акция ларька",d:"Стань совладельцем коробок на 1 этаже. Дивиденды — помидорами. Риск просрать всё в первый день — 100%.",p:500,old:600,tag:"IPO",cls:"hot"},
+];
+let cart=JSON.parse(localStorage.getItem("masha-cart")||"[]");
+let disc=0;
+const grid=document.getElementById("grid");
+function renderProducts(){
+ grid.innerHTML=PRODUCTS.map(x=>`<div class="card reveal on"><div class="em">${x.em}</div>${x.tag?`<span class="tag ${x.cls}">${x.tag}</span>`:""}<h3>${x.t}</h3><p>${x.d}</p><div class="price"><b>${x.p} ₽</b><s>${x.old} ₽</s></div><button class="add" onclick="add(${x.id})">В корзину 🧺</button></div>`).join("");
+}
+function save(){localStorage.setItem("masha-cart",JSON.stringify(cart));renderCart()}
+function add(id){const f=cart.find(c=>c.id===id);f?f.q++:cart.push({id,q:1});save();boom("🍅");toggleCart(true)}
+function ch(id,d){const f=cart.find(c=>c.id===id);if(!f)return;f.q+=d;if(f.q<=0)cart=cart.filter(c=>c.id!==id);save()}
+function applyPromo(){const v=document.getElementById("promo").value.trim().toUpperCase();if(v==="КАЗАЧКА"){disc=.15;alert("Казачка одобряет: -15%")}else if(v==="ИСТОРИК"){disc=0;alert("Историк ставит тебе 5, но скидки нет")}else{disc=0;alert("Такого промокода нет. Попробуй КАЗАЧКА")}renderCart()}
+function sum(){return cart.reduce((s,c)=>{const p=PRODUCTS.find(x=>x.id===c.id);return s+p.p*c.q},0)}
+function renderCart(){
+ document.getElementById("count").textContent=cart.reduce((s,c)=>s+c.q,0);
+ const box=document.getElementById("items");
+ if(!cart.length)box.innerHTML="<p style='color:var(--mut);padding:12px 0'>Пока пусто. Маша уже ставит коробки на 1 этаже…</p>";
+ else box.innerHTML=cart.map(c=>{const p=PRODUCTS.find(x=>x.id===c.id);return `<div class="row"><span>${p.em} ${p.t} × ${c.q}</span><span class="qty"><button onclick="ch(${c.id},-1)" aria-label="Меньше">−</button><b>${p.p*c.q} ₽</b><button onclick="ch(${c.id},1)" aria-label="Больше">+</button></span></div>`}).join("");
+  const t=Math.round(sum()*(1-disc));
+  document.getElementById("total").textContent=t+" ₽"+(disc?" (−15%)":"");
+}
+function toggleCart(force){const d=document.getElementById("drawer");const s=document.getElementById("scrim");const open=force===true?true:force===false?false:!d.classList.contains("open");d.classList.toggle("open",open);s.classList.toggle("open",open);document.body.style.overflow=open?"hidden":""}
+function checkout(){
+ if(!cart.length){alert("Сначала накидай помидоров 🍅");return}
+ const t=Math.round(sum()*(1-disc));
+ const txt=encodeURIComponent(`Привет, Маша! 🍅 Я из ТЭС-11, хочу помидоры:\n`+cart.map(c=>{const p=PRODUCTS.find(x=>x.id===c.id);return `• ${p.t} × ${c.q} — ${p.p*c.q}₽`}).join("\n")+`\nИтого: ${t}₽`);
+ window.open("https://t.me/rramfff?text="+txt,"_blank");
+}
+function order(){
+ const n=document.getElementById("nm").value||"студент ТЭС-11";
+ const p=document.getElementById("pk").value;
+ document.getElementById("ord").textContent=`Готово, ${n}! Маша уже пакует «${p}» в коробки. Напиши ей в ТГ @rramfff 🐎`;
+ boom("🍅🐎🍐🍇");
+}
+function boom(ems){
+ const box=document.getElementById("boom");
+ for(let i=0;i<24;i++){const s=document.createElement("span");s.textContent=[...ems][Math.floor(Math.random()*[...ems].length)]||"🍅";
+ s.style.cssText=`position:absolute;left:${40+Math.random()*20}%;top:60%;transition:all 1.2s ease-out`;box.appendChild(s);
+ requestAnimationFrame(()=>{s.style.transform=`translate(${(Math.random()-.5)*500}px,${-Math.random()*500}px) rotate(${Math.random()*360}deg)`;s.style.opacity="0"});
+ setTimeout(()=>s.remove(),1300)}
+}
+// glow follows cursor (no-op on touch)
+addEventListener("pointermove",e=>{if(e.pointerType==="touch")return;const g=document.getElementById("glow");g.style.left=e.clientX+"px";g.style.top=e.clientY+"px"});
+addEventListener("keydown",e=>{if(e.key==="Escape")toggleCart(false)});
+// open badge by time
+(function(){const h=new Date().getHours();const el=document.getElementById("open");if(h<8||h>18){el.textContent="ЛАРЁК ЗАКРЫТ • ОТКРОЕТСЯ НА БОЛЬШОЙ ПЕРЕМЕНЕ"}})();
+// reveal
+const io=new IntersectionObserver(es=>es.forEach(e=>e.isIntersecting&&e.target.classList.add("on")),{threshold:.1});
+document.querySelectorAll(".reveal").forEach(el=>io.observe(el));
+renderProducts();renderCart();
+</script>
+</body>
+</html>
