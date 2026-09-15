@@ -165,7 +165,7 @@ body.shop .vs .us{background:linear-gradient(135deg,#ff3b3022,#ff9f0a22)}
 .order{background:linear-gradient(135deg,#0ea5e9,#6d28d9);border-radius:28px;padding:26px;position:relative;overflow:hidden}
 body.shop .order{background:linear-gradient(135deg,#ff3b30,#a31212)}
 .order::after{content:"🍅";position:absolute;right:-20px;bottom:-40px;font-size:200px;opacity:.18;rotate:-12deg}
-body:not(.shop) .order::after{content:"❄️"}
+body:not(.shop) .order::after{content:"🐰"}
 .order h2{color:#fff}
 .form{display:grid;gap:10px;margin-top:16px;position:relative;z-index:1}
 .form input,.form select{background:rgba(0,0,0,.35);border:1px solid rgba(255,255,255,.3);color:#fff;border-radius:14px;padding:14px;font-size:15px;width:100%;outline:none}
