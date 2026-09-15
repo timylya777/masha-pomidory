@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Цитаты • ТЭС-11 ЛОР-ХАБ</title>
+<meta name="description" content="Цитаты студентов ТЭС-11: дословно из чата.">
+<link rel="stylesheet" href="styles.css?v=3">
+</head>
+<body>
+<div class="grid-bg"></div>
+
+<nav><div class="wrap nav-in">
+  <div class="logo"><img src="img/group.jpg" alt="Аватарка группы ТЭС-11" width="40" height="40" style="width:100%;height:100%"></div>
+  <div class="brand"><b>ТЭС-11 • ЛОР-ХАБ</b><span>глава 04 • цитаты</span></div>
+  <div class="nav-links">
+    <a href="index.html">Хаб</a>
+    <a href="gallery.html">Галерея</a>
+    <a href="heroes.html">Герои</a>
+    <a href="shop.html">Магазин</a>
+    <a href="quotes.html" class="cur">Цитаты</a>
+  </div>
+</div></nav>
+
+<div class="wrap">
+<p class="crumbs"><a href="index.html">Хаб</a> / Цитаты</p>
+<section>
+  <div class="kicker">ОТЗЫВЫ • ПРОВЕРЕНО ГРУППОЙ 406</div>
+  <h2>Студенты говорят</h2>
+  <div class="rev">
+    <blockquote class="reveal">«Лучше мне деньги кидайте, надежнее будет»<br><b>— Маша, финансовый директор</b></blockquote>
+    <blockquote class="reveal">«Пропитание голодающим»<br><b>— отдел заботы</b></blockquote>
+    <blockquote class="reveal">«Груши мои не забудь завтра»<br><b>— логистика</b></blockquote>
+    <blockquote class="reveal">«Где мой виноград»<br><b>— контроль качества</b></blockquote>
+    <blockquote class="reveal">«Моя работа по общаге у 4 человек списано точь в точь»<br><b>— Маша, про авторские права</b></blockquote>
+    <blockquote class="reveal">«Луивитон это для меня. Успех это для меня»<br><b>— таро-расклад, 15.09</b></blockquote>
+  </div>
+</section>
+
+<footer><a href="heroes.html" style="color:var(--acc);text-decoration:none">← герои</a> • <a href="shop.html" style="color:var(--acc);text-decoration:none">магазин →</a></footer>
+</div>
+
+<script>
+const io=new IntersectionObserver(es=>es.forEach(e=>e.isIntersecting&&e.target.classList.add("on")),{threshold:.1});
+document.querySelectorAll(".reveal").forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
